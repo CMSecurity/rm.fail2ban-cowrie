@@ -1,0 +1,7 @@
+---
+# defaults file for rm.fail2ban
+  cowrie_user: hp
+  cowrie_home: /opt/cowrie
+  cowrie_root: "{{ cowrie_home }}/hp"
+  cowrie_ssh_port: 2222
+  cowrie_telnet_port: 2223

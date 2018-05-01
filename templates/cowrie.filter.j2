@@ -1,0 +1,22 @@
+# Cowrie Filter for fail.ban
+#
+
+[INCLUDES]
+
+# Read common prefixes. If any customizations available -- read them from
+# common.local
+before = common.conf
+
+
+[Definition]
+
+failregex = New connection: <HOST>:
+
+ignoreregex =
+
+
+
+
+
+# 2018-01-22T21:39:08+0000 [CowrieTelnetTransport,11116,187.56.98.17] login attempt [Admin/5up] failed
+# 2018-01-04T19:12:51+0000 [SSHService 'ssh-userauth' on HoneyPotSSHTransport,26515,182.100.67.129] login attempt [root/blabla] failed
