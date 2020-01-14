@@ -1,16 +1,23 @@
 ---
 # tasks file for rm.fail2ban
 - name: Installing fail2ban
-  apt: name="{{ item }}" state=latest update_cache=yes cache_valid_time=600
-  with_items:
-    - fail2ban
+  apt:
+    name:
+      - fail2ban
+    state: latest
+    update_cache: yes
+    cache_valid_time: 600
 
 - name: Deploy cowrie fail2ban filter
-  template: src=cowrie.filter.j2 dest="/etc/fail2ban/filter.d/cowrie.conf"
+  template:
+    src: cowrie.filter.j2
+    dest: "/etc/fail2ban/filter.d/cowrie.conf"
   notify:
     - restart fail2ban
 
 - name: Deploy cowrie fail2ban jail
-  template: src=cowrie.jail.j2 dest="/etc/fail2ban/jail.d/cowrie.conf"
+  template:
+    src: cowrie.jail.j2
+    dest: "/etc/fail2ban/jail.d/cowrie.conf"
   notify:
     - restart fail2ban
